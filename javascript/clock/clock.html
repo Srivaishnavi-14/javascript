@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Analog Clock</title>
+	<link rel="stylesheet" type="text/css" href="clock.css">
+</head>
+<body>
+	<div class="container">
+		<div class="clock">
+			<div class="hr" id="hour"></div>
+			<div class="min" id="minute"></div>
+			<div class="sec" id="second"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+
+  const hour = document.getElementById('hour');
+  const minute = document.getElementById('minute');
+  const second = document.getElementById('second');
+  
+
+setInterval(()=>
+{
+
+
+		let date=new Date();
+		let hrs = date.getHours()*30;
+		let minu=date.getMinutes()*6;
+		let secn=date.getSeconds()*6;
+	
+		hour.style.transform=`rotateZ(${(hrs)+(minu/12)}deg)`;
+		minute.style.transform=`rotateZ(${minu}deg)`;
+		second.style.transform=`rotateZ(${secn}deg)`;
+
+})
+
+
+</script>
+
