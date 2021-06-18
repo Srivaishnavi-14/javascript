@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript ES6</title>
+</head>
+<body>
+<script>
+	const person=[
+			{name:'vaishu', year:2002},
+			{name:'sagaarika',year:2000},
+			{name:'bhuvi' ,year:1998},
+			{name:'kakshi',year:2020}
+			];
+
+	const comments=[
+	{text:'Hi there',id:37002},
+	{text:'stidupendous',id:37003},
+	{text:'marvellous',id:37004},
+	{text:'Incredible',id:37005},	
+	{text:'Indeed',id:37006},
+	];
+
+	const isAdult=person.some(function(persons)
+	{
+		const cy=(new Date()).getFullYear();
+		if(cy-persons.year >= 19){
+			return true;
+		}
+	});
+	console.log({isAdult});
+
+	const allAdults=person.every(persons=>(new Date()).getFullYear()-
+		persons.year >= 19);
+	console.log({allAdults});
+
+	const comm=comments.find(function(comment)
+	{
+		if(comment.id === 37005){
+			return true;
+		}
+	});
+
+	console.log({comm});
+
+	const index=comments.findIndex(comment=>comment.id=37003);
+	console.log(index);
+
+	const newComments = [
+  ...comments.slice(0,index),
+  ...comments.slice(index + 1)
+	]
+</script>
+</body>
+</html>

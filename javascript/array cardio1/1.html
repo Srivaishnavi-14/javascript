@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JAva ES6</title>
+</head>
+<body>
+<script type="text/javascript">
+	var details=[
+	{first:'Levi',last:'Ackerman',birth:1500,passed:2000},
+	{first:'Erwin',last:'Smith',birth:1499,passed:1999},
+	{first:'Eren',last:'Jeager',birth:1700,passed:2005},
+	{first:'Itachi',last:'Uchicha',birth:1800,passed:2017},
+	{first:'Nagato',last:'Yahmato',birth:1888,passed:2020},
+	];
+
+	const names=['Levi,Ackerman','mikasa,Eren','Erwin,Smith','Sasuke,Uchicha','Itachi,Uchicha','Nagato,Naruto','Uzumaki,Minato','Kushina,Tsunade','Jiraya,jean','Armin,Kakashi','Sakura,Sarada',
+	'Konan,Yahiko','Gaara,Zabuzo','Madara,Asuma','kurenai,Yahamato','Neji,Hinata','Shino,Ackamaru','Baruto,Saruto','Deidara,Sasori',
+	'Sansa,Kenny','Connie,Erward','Michael,John','Rose,Emilia','Catherine,Skyler']
+
+	const fif=details.filter(detail => (detail.birth >= 1500 && detail.birth < 1600))
+	console.table(fif);
+
+	const map=details.map(fullname => `${fullname.first } ${fullname.last}`);
+	console.table(map);
+
+	const sort=details.sort((a,b) => a.birth > b.birth ? 1 :-1);
+	console.table(sort);
+
+	const total=details.reduce((total, detail)=>
+	{
+		return total + (detail.passed - detail.birth);
+	},0);
+	console.log(total);
+
+	const old=details.sort(function(a,b)
+	{
+		const last=a.passed-b.birth;
+		const next=a.passed-b.birth;
+		 return last > next ? -1 :1;
+	});
+	 console.table(old);
+
+	 const people=names.sort(function(lastOne,nextOne)
+	 	{
+	 	const [alast,anext]=lastOne.split(', ');
+	 	const [blast,bnext]=nextOne.split(', ');
+	 	return alast > blast ? 1:-1;	
+	 	});
+	 console.log(people);
+
+	 const data=['truck','truck','aero','aero','aero','car','car','bike','bike','motor','motor','van','van','van','van'];
+
+	 const transport=data.reduce(function(obj,item)
+	 {
+	 	if(!obj[item])
+	 	{
+	 		obj[item]=0;
+	 	}
+	 	obj[item]++;
+	 	return obj;
+	 }, {});
+	 console.log(transport);
+</script>
+</body>
+</html>
